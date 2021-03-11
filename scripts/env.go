@@ -6,6 +6,10 @@ import (
 	"strings"
 )
 
+/**
+* Program that writes an env var file with the expected platform and
+* architecture target values for go build to use.
+*/
 func main() {
 	value := os.Args[1]
 	keys := []string{"GOOS", "GOARCH", "GOARM"}
@@ -20,5 +24,5 @@ func main() {
 		line = strings.ReplaceAll(line, "<y>", val)
 		result += line
 	}
-	ioutil.WriteFile("./vars", []byte(result), 0777)
+	ioutil.WriteFile("./env.txt", []byte(result), 0777)
 }
